@@ -3,7 +3,6 @@ var cacheName = 'final-exam-app';
 
 // Default files to always cache
 var cacheFiles = [
-	'./',
 	'./index.html'
 ]
 

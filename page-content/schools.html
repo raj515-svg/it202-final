@@ -75,9 +75,9 @@ $("button#searchSchoolMS").on("click", (e) => {
     let url = endpoint + "$limit=" + limit;
 
     let divider = $("ul#listSchools .mdc-list-divider.template");
-
+    
     $.get(url, (response) => {
-      console.log(response);
+ 
       $.each(response, (i,v) => {
         // clone template
         let clone = $("ul#listSchools .mdc-list-item.template").clone();
@@ -89,14 +89,16 @@ $("button#searchSchoolMS").on("click", (e) => {
         dividerClone.removeClass("template");
 
         // set values
-        clone.find(".mdc-list-item__primary-text").text(v.long_name)
+        clone.find(".mdc-list-item__primary-text").text(v.long_name);
 
 
         // append to list
         $("ul#listSchools").append(dividerClone);
         
-        
+  
         $("ul#listSchools").append(clone);
+          $("ul#listSchools").append(v.school_id + " ");
+          $("ul#listSchools").append(v.address);
 
       });
     });
@@ -119,14 +121,15 @@ let getSchoolES = () => {
         dividerClone.removeClass("template");
 
         // set values
-        clone.find(".mdc-list-item__primary-text").text(v.long_name)
-
+        clone.find(".mdc-list-item__primary-text").text(v.long_name);
 
         // append to list
         $("ul#listSchools").append(dividerClone);
         
         
         $("ul#listSchools").append(clone);
+          $("ul#listSchools").append(v.school_id + " ");
+          $("ul#listSchools").append(v.address);
 
       });
     });
@@ -158,6 +161,8 @@ let getSchoolMS = () => {
         
         
         $("ul#listSchools").append(clone);
+          $("ul#listSchools").append(v.school_id + " ");
+          $("ul#listSchools").append(v.address);
 
       });
     });
@@ -188,6 +193,8 @@ let getSchoolHS = () => {
         
         
         $("ul#listSchools").append(clone);
+          $("ul#listSchools").append(v.school_id + " ");
+          $("ul#listSchools").append(v.address);
 
       });
     });
